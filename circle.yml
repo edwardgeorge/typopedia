@@ -3,7 +3,16 @@ machine:
     version: 7.10.1
 checkout:
   post:
-    - git clone -b gh-pages git@github.com:edwardgeorge/typopedia.git _site
+    - ./checkout_site.sh
+dependencies:
+  pre:
+    - git config --global user.email "edwardgeorge@gmail.com"
+    - git config --global user.name "Edward George"
 test:
   post:
     - cabal run build
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./deploy_site.sh
