@@ -1,3 +1,6 @@
 machine:
   ghc:
     version: 7.10.1
+test:
+  post:
+    - cabal run build
